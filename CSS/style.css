@@ -430,8 +430,8 @@ body {
 
 @media (max-width: 767px) {
     .card {
-        margin: 0;
-        border-radius: 0;
+        margin: 0 auto;
+        border-radius: clamp(10px, 2vw, 15px);
     }
 
     .logo-container {
@@ -458,7 +458,11 @@ body {
 
 @media (max-width: 480px) {
     :root {
-        --spacing: 15px;
+        --spacing: clamp(15px, 3vw, 20px);
+    }
+
+    body {
+        padding: var(--spacing);
     }
 
     .logo-container {
