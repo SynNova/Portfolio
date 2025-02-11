@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SynNova - Software e Soluções</title>
+
+    <!-- Favicon inicial -->
+    <link rel="icon" type="image/svg+xml" href="IMG/Logo-SynNova-Favicon.svg" id="favicon">
+
     <link rel="stylesheet" href="CSS/style.css">
+
+    <script>
+        // Função para atualizar o favicon
+        function updateFavicon() {
+            const favicon = document.getElementById('favicon');
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                favicon.href = 'IMG/Logo-SynNova-Favicon-Branco.svg';
+            } else {
+                favicon.href = 'IMG/Logo-SynNova-Favicon.svg';
+            }
+        }
+
+        // Atualiza o favicon quando a página carrega
+        document.addEventListener('DOMContentLoaded', updateFavicon);
+
+        // Observa mudanças no tema do sistema
+        if (window.matchMedia) {
+            window.matchMedia('(prefers-color-scheme: dark)')
+                .addEventListener('change', updateFavicon);
+        }
+    </script>
 </head>
 <body>
     <!-- Splash Screen -->
