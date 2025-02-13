@@ -1,13 +1,37 @@
-﻿/* Variáveis e Configurações Básicas */
+﻿/* Variáveis do tema */
 :root {
-    --primary: #085263;
-    --secondary: #80BFD4;
-    --light: #f8f9fa;
-    --dark: #333;
+    --primary: #2B8A9C;
+    --secondary: #1E606D;
+    --background: #121416;
+    --card-bg: #1A1D20;
+    --card-bg-hover: #22262A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #9BA1A6;
+    --accent: #30B8D3;
     --spacing: clamp(20px, 4vw, 40px);
+    --border-color: rgba(48, 184, 211, 0.2);
 }
 
-/* Animações */
+/* Reset e Estilos Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+    background-color: var(--background);
+    color: var(--text-primary);
+}
+
+body {
+    min-height: 100vh;
+    padding: var(--spacing);
+}
+
+/* Animações Globais */
 @keyframes fadeInSplash {
     0% {
         opacity: 0;
@@ -49,73 +73,6 @@
     }
 }
 
-@keyframes carousel {
-    0% {
-        transform: translateX(0);
-    }
-
-    22% {
-        transform: translateX(0);
-    }
-
-    25% {
-        transform: translateX(-25%);
-    }
-
-    47% {
-        transform: translateX(-25%);
-    }
-
-    50% {
-        transform: translateX(-50%);
-    }
-
-    72% {
-        transform: translateX(-50%);
-    }
-
-    75% {
-        transform: translateX(-75%);
-    }
-
-    97% {
-        transform: translateX(-75%);
-    }
-
-    100% {
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideClients {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(calc(-100% / 2));
-    }
-}
-
-/* Reset e Estilos Básicos */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-html, body {
-    overflow-x: hidden;
-    background-color: #f0f0f0;
-}
-
-body {
-    min-height: 100vh;
-    padding: var(--spacing);
-    position: relative;
-}
-
 /* Splash Screen */
 .splash-screen {
     position: fixed;
@@ -134,7 +91,7 @@ body {
 
 .splash-content {
     text-align: center;
-    color: white;
+    color: var(--text-primary);
     padding: 20px;
     max-width: 90%;
     animation: fadeInSplash 0.8s ease-out forwards;
@@ -160,33 +117,31 @@ body {
     animation: fadeInSplash 0.5s ease-out forwards 1s;
 }
 
-/* Main Wrapper */
+/* Container Principal */
 .main-wrapper {
     opacity: 0;
     animation: fadeInScale 1s ease-out forwards 4.2s;
 }
 
-/* Card Principal */
 .card {
-    background: white;
+    background: var(--card-bg);
     width: 100%;
     margin: 0 auto;
-    border-radius: clamp(10px, 2vw, 15px);
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     max-width: 1400px;
 }
 
 /* Header */
 .header {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
     padding: var(--spacing);
     text-align: center;
 }
 
 .logo-container {
-    max-width: 300px;
+    max-width: 200px;
     margin: 0 auto 20px;
     transition: transform 0.3s ease;
 }
@@ -198,7 +153,6 @@ body {
     .logo-container img {
         width: 100%;
         height: auto;
-        display: block;
     }
 
 .tagline {
@@ -206,7 +160,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
     line-height: 1.6;
-    padding: 0 clamp(10px, 2vw, 20px);
+    opacity: 0.9;
 }
 
 /* Conteúdo Principal */
@@ -218,7 +172,7 @@ body {
 
 /* Títulos de Seção */
 .section-title {
-    color: var(--primary);
+    color: var(--accent);
     font-size: clamp(1.5em, 4vw, 1.8em);
     margin-bottom: var(--spacing);
     text-align: center;
@@ -226,339 +180,444 @@ body {
 }
 
     .section-title::after {
-        content: '';
+        content: "";
         display: block;
         width: 60px;
         height: 3px;
-        background: var(--primary);
+        background: var(--accent);
         margin: 10px auto;
     }
 
-/* Grid de Soluções */
-.solutions-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--spacing);
-    margin-bottom: var(--spacing);
+/* ERP Section */
+.erp-section {
+    margin-bottom: 3rem;
+}
+
+/* Card Grande ERP */
+.erp-card {
     width: 100%;
-}
-
-.solution-card {
-    background: var(--light);
-    padding: 0;
-    border-radius: 15px;
-    border-left: 4px solid var(--primary);
-    transition: transform 0.3s ease;
+    background: linear-gradient(135deg, var(--card-bg) 0%, var(--card-bg-hover) 100%);
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
     overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    transition: all 0.3s ease;
 }
 
-.solution-image {
-    width: 100%;
-    height: 300px;
-    position: relative;
+    .erp-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(48, 184, 211, 0.1);
+        border-color: var(--accent);
+    }
+
+/* Contêiner que mostra parcialmente (overflow: hidden) */
+.erp-top-wrap {
+    position: relative; /* para posicionar o pseudo-elemento e o botão */
     overflow: hidden;
-    background: var(--primary);
+    transition: max-height 0.5s ease;
 }
 
-    .solution-image::after {
-        content: '';
+    /* Altura fixa inicial (mostra só parte dos itens) */
+    .erp-top-wrap.collapsed {
+        max-height: 350px; /* Ajuste conforme deseja que apareça parte das imagens/vídeos */
+    }
+
+    /* Altura expandida (mostra tudo) */
+    .erp-top-wrap.expanded {
+        max-height: 9999px; /* Bem grande para mostrar todo o conteúdo */
+    }
+
+    /* Degradê no fundo para dar a sensação de que as imagens estão "por trás" do botão */
+    .erp-top-wrap.collapsed::after {
+        content: "";
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 20px;
-        background: linear-gradient(to bottom, transparent, var(--light));
-        z-index: 1;
+        height: 80px; /* altura do degradê */
+        background: linear-gradient( rgba(18, 20, 22, 0), rgba(18, 20, 22, 0.8) );
+        pointer-events: none;
+        z-index: 1; /* Fica acima dos vídeos/imagens, mas abaixo do botão */
     }
 
-.carousel {
-    width: 400%;
-    height: 100%;
+/* Parte superior do ERP: 2 colunas (esquerda: vídeos, direita: imagens) */
+.erp-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Coluna Esquerda (vídeos) */
+.erp-left {
     display: flex;
-    animation: carousel 24s infinite;
-    position: relative;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-    .carousel:hover {
-        animation-play-state: paused;
-    }
-
-    .carousel img {
-        width: 25%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top;
-        flex-shrink: 0;
-    }
-
-.solution-card:hover {
-    transform: translateY(-5px);
+/* Coluna Direita (imagens) */
+.erp-right {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.solution-content {
-    padding: clamp(15px, 3vw, 30px);
-    flex: 1;
+/* Card de mídia (vídeo ou imagem) do ERP */
+.erp-media-card {
+    background: var(--card-bg-hover);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .erp-media-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent);
+    }
+
+    .erp-media-card video,
+    .erp-media-card img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        display: block;
+    }
+
+/* Botão minimalista (linha - seta - linha) posicionado ABSOLUTO */
+.toggle-erp-btn {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Ocupar toda a largura */
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 0;
+    color: var(--accent);
+    font-size: 1.5rem;
+    z-index: 2; /* acima do degradê */
+}
+
+    .toggle-erp-btn .line {
+        flex: 1; /* Expande para preencher o espaço */
+        height: 1px;
+        background-color: var(--accent);
+    }
+
+    .toggle-erp-btn .arrow {
+        transition: transform 0.3s ease;
+    }
+
+    .toggle-erp-btn.expanded .arrow {
+        transform: rotate(180deg);
+    }
+
+/* Grid de funcionalidades do ERP */
+.erp-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+}
+
+.erp-feature-item {
+    background: rgba(48, 184, 211, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+    .erp-feature-item:hover {
+        transform: translateY(-3px);
+        background: rgba(48, 184, 211, 0.08);
+        border-color: var(--accent);
+    }
+
+.erp-feature-title {
+    color: var(--accent);
+    font-size: 1.05em;
+    margin-bottom: 0.5rem;
+}
+
+.erp-feature-description {
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+/* Outras Soluções */
+.other-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.solution-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
 }
 
+    .solution-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(48, 184, 211, 0.1);
+        border-color: var(--accent);
+    }
+
+.solution-header {
+    padding: 1rem;
+}
+
+.solution-content {
+    padding: 1rem;
+}
+
 .solution-title {
-    color: var(--primary);
-    font-size: clamp(1.2em, 3vw, 1.4em);
-    margin-bottom: 15px;
+    color: var(--accent);
+    font-size: 1.3em;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .solution-description {
-    color: var(--dark);
-    line-height: 1.6;
-    font-size: clamp(0.9em, 2vw, 1em);
+    color: var(--text-secondary);
+    font-size: 0.95em;
+    line-height: 1.5;
+    margin-bottom: 1rem;
 }
 
+/* Marquee de imagens (Outras Soluções) */
+.solution-image-marquee {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.solution-image-track {
+    display: flex;
+    gap: 2rem;
+    width: 200%;
+    animation: solutionMarquee 20s linear infinite;
+}
+
+    .solution-image-track img {
+        height: 100%;
+        object-fit: contain;
+    }
+
+@keyframes solutionMarquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Lista de features genéricas */
 .features-list {
-    margin: 15px 0 0 20px;
-    list-style-type: none;
-    flex: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
     .features-list li {
-        margin-bottom: 8px;
+        color: var(--text-secondary);
+        padding: 0.5rem 0 0.5rem 1.5rem;
         position: relative;
-        padding-left: 20px;
-        line-height: 1.4;
-        font-size: clamp(0.9em, 2vw, 1em);
+        font-size: 0.95em;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
     }
 
-        .features-list li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
+        .features-list li:last-child {
+            border-bottom: none;
         }
 
-/* Seção de Clientes */
+        .features-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+
+        .features-list li:hover {
+            color: var(--text-primary);
+            padding-left: 2rem;
+        }
+
+            .features-list li:hover::before {
+                transform: translateX(0.5rem);
+            }
+
+/* Seção de Clientes - Marquee */
 .clients-section {
-    padding: var(--spacing);
-    background: var(--light);
-    border-radius: 15px;
-    margin-top: var(--spacing);
+    position: relative;
+    padding: var(--spacing) 0;
     overflow: hidden;
+    text-align: center;
 }
 
-.clients-slider {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    padding: 20px 0;
+.clients-marquee {
+    width: 200%;
+    margin: 0 auto;
 }
 
 .clients-track {
     display: flex;
-    gap: 30px;
-    animation: slideClients 30s linear infinite;
-    width: max-content;
+    gap: 2rem;
+    animation: scrollClients 30s linear infinite;
 }
 
-    .clients-track:hover {
-        animation-play-state: paused;
+@keyframes scrollClients {
+    0% {
+        transform: translateX(0);
     }
 
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Cards de Cliente */
 .client-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    width: 280px;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-width: 220px;
 }
 
     .client-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        box-shadow: 0 8px 24px rgba(48, 184, 211, 0.1);
+        border-color: var(--accent);
     }
 
+/* Logo do Cliente */
 .client-logo {
-    width: 120px;
-    height: 80px;
-    margin: 0 auto 15px;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 0 auto 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
     .client-logo img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 80%;
+        height: 80%;
         object-fit: contain;
     }
 
 .client-name {
-    color: var(--primary);
     font-size: 1.1em;
-    margin-bottom: 5px;
-    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+    font-weight: 600;
 }
 
 .client-service {
-    color: var(--dark);
     font-size: 0.9em;
-    text-align: center;
-    line-height: 1.4;
+    color: var(--text-secondary);
 }
 
 /* Seção de Contato */
 .contact-section {
-    background: var(--light);
-    padding: var(--spacing);
-    border-radius: 15px;
-    margin-top: var(--spacing);
+    padding: var(--spacing) 0;
+    text-align: center;
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-    gap: clamp(10px, 2vw, 20px);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: var(--spacing);
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    font-size: clamp(0.9em, 2vw, 1em);
+    justify-content: center;
+    font-size: 1em;
+    color: var(--text-secondary);
 }
 
 .contact-icon {
-    color: var(--primary);
+    margin-right: 0.5rem;
     font-size: 1.2em;
 }
 
-/* Links Sociais */
 .social-links {
     display: flex;
-    gap: 15px;
     justify-content: center;
-    margin-top: var(--spacing);
+    gap: 1rem;
 }
 
 .social-link {
-    width: clamp(40px, 8vw, 50px);
-    height: clamp(40px, 8vw, 50px);
-    background: var(--primary);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    color: var(--accent);
+    font-size: 1.2em;
     text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: clamp(0.9em, 2vw, 1em);
+    transition: color 0.3s ease;
 }
 
     .social-link:hover {
-        background: var(--secondary);
-        transform: scale(1.1);
+        color: var(--text-primary);
     }
 
 /* Seção CTA */
 .cta-section {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    text-align: center;
+    background: var(--primary);
     padding: var(--spacing);
+    text-align: center;
+    border-radius: 12px;
     margin-top: var(--spacing);
-    border-radius: 15px;
 }
 
 .cta-title {
-    font-size: clamp(1.5em, 4vw, 1.8em);
-    margin-bottom: clamp(15px, 3vw, 20px);
+    font-size: clamp(1.5em, 4vw, 2em);
+    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
 .cta-text {
-    max-width: 800px;
-    margin: 0 auto 25px;
-    line-height: 1.6;
-    font-size: clamp(0.9em, 2vw, 1em);
+    font-size: 1em;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
 }
 
 .cta-button {
     display: inline-block;
-    background: white;
-    color: var(--primary);
-    padding: clamp(12px, 2vw, 15px) clamp(25px, 4vw, 40px);
-    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: var(--text-primary);
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    font-size: clamp(0.9em, 2vw, 1em);
+    transition: background 0.3s ease;
 }
 
     .cta-button:hover {
-        transform: scale(1.05);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        background: var(--secondary);
     }
-
-/* Media Queries */
-@media (min-width: 768px) {
-    .solutions-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 767px) {
-    .card {
-        margin: 0;
-        border-radius: 0;
-    }
-
-    .logo-container {
-        max-width: 200px;
-    }
-
-    .solutions-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .solution-image {
-        height: 200px;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .splash-text {
-        font-size: clamp(1em, 4vw, 1.2em);
-        white-space: normal;
-    }
-
-    .client-card {
-        width: 240px;
-    }
-
-    .client-logo {
-        width: 100px;
-        height: 70px;
-    }
-}
-
-@media (max-width: 480px) {
-    :root {
-        --spacing: 15px;
-    }
-
-    .logo-container {
-        max-width: 180px;
-    }
-
-    .splash-logo {
-        max-width: 200px;
-    }
-}

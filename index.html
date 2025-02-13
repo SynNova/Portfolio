@@ -1,33 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SynNova - Software e Soluções</title>
 
     <!-- Favicon inicial -->
-    <link rel="icon" type="image/svg+xml" href="IMG/Logo-SynNova-Favicon.svg" id="favicon">
+    <link rel="icon" type="image/svg+xml" href="IMG/Logo-SynNova-Favicon.svg" id="favicon" />
 
-    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="CSS/style.css" />
 
     <script>
-        // Função para atualizar o favicon
+        // Atualiza o favicon conforme o tema
         function updateFavicon() {
-            const favicon = document.getElementById('favicon');
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                favicon.href = 'IMG/Logo-SynNova-Favicon-Branco.svg';
+            const favicon = document.getElementById("favicon");
+            if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                favicon.href = "IMG/Logo-SynNova-Favicon-Branco.svg";
             } else {
-                favicon.href = 'IMG/Logo-SynNova-Favicon.svg';
+                favicon.href = "IMG/Logo-SynNova-Favicon.svg";
             }
         }
-
-        // Atualiza o favicon quando a página carrega
-        document.addEventListener('DOMContentLoaded', updateFavicon);
-
-        // Observa mudanças no tema do sistema
+        document.addEventListener("DOMContentLoaded", updateFavicon);
         if (window.matchMedia) {
-            window.matchMedia('(prefers-color-scheme: dark)')
-                .addEventListener('change', updateFavicon);
+            window
+                .matchMedia("(prefers-color-scheme: dark)")
+                .addEventListener("change", updateFavicon);
         }
     </script>
 </head>
@@ -36,9 +34,12 @@
     <div class="splash-screen">
         <div class="splash-content">
             <div class="splash-logo">
-                <img src="IMG/Logo-SynNova-Header-Branca.png" alt="SynNova Logo">
+                <img src="IMG/Logo-SynNova-Header-Branca.png" alt="SynNova Logo" />
             </div>
-            <p class="splash-text">Bem-vindo à SynNova<br>O seu parceiro para softwares e soluções tecnológicas</p>
+            <p class="splash-text">
+                Bem-vindo à SynNova<br />
+                O seu parceiro para softwares e soluções tecnológicas
+            </p>
         </div>
     </div>
 
@@ -47,48 +48,148 @@
         <div class="card">
             <header class="header">
                 <div class="logo-container">
-                    <img src="IMG/Logo-SynNova-Header-Branca.png" alt="SynNova Logo">
+                    <img src="IMG/Logo-SynNova-Header-Branca.png" alt="SynNova Logo" />
                 </div>
                 <p class="tagline">Soluções em Software e Tecnologia para Impulsionar seu Negócio</p>
             </header>
 
             <main class="main-content">
+                <!-- Seção Geral de Soluções -->
                 <h2 class="section-title">Nossas Soluções</h2>
 
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <div class="solution-image">
-                            <div class="carousel">
-                                <img src="IMG/erp1.jpg" alt="Sistema ERP - Vista 1">
-                                <img src="IMG/erp2.jpg" alt="Sistema ERP - Vista 2">
-                                <img src="IMG/erp3.jpg" alt="Sistema ERP - Vista 3">
-                                <img src="IMG/erp4.jpg" alt="Sistema ERP - Vista 4">
+                <!-- CARD GRANDE ERP -->
+                <section class="erp-section">
+                    <div class="solution-card erp-card">
+                        <h2 class="section-title">Sistema ERP Completo</h2>
+                        <p class="solution-description" style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
+                            Sistema integrado completo para pequenas e médias empresas, oferecendo controle total das operações.
+                        </p>
+
+                        <!-- Contêiner que mostra só parte do conteúdo (overflow hidden) -->
+                        <div class="erp-top-wrap collapsed" id="erpTopWrap">
+                            <div class="erp-top">
+                                <!-- Coluna Esquerda: 3 vídeos -->
+                                <div class="erp-left">
+                                    <div class="erp-media-card">
+                                        <video loop autoplay muted playsinline>
+                                            <source src="IMG/ERP_DEMO_1.mp4" type="video/mp4" />
+                                        </video>
+                                    </div>
+                                    <div class="erp-media-card">
+                                        <video loop autoplay muted playsinline>
+                                            <source src="IMG/ERP_DEMO_2.mp4" type="video/mp4" />
+                                        </video>
+                                    </div>
+                                    <div class="erp-media-card">
+                                        <video loop autoplay muted playsinline>
+                                            <source src="IMG/ERP_DEMO_3.mp4" type="video/mp4" />
+                                        </video>
+                                    </div>
+                                </div>
+
+                                <!-- Coluna Direita: 4 imagens -->
+                                <div class="erp-right">
+                                    <div class="erp-media-card">
+                                        <img src="IMG/ERP_DEMO_1.jpeg" alt="ERP Demo 1" />
+                                    </div>
+                                    <div class="erp-media-card">
+                                        <img src="IMG/ERP_DEMO_2.png" alt="ERP Demo 2" />
+                                    </div>
+                                    <div class="erp-media-card">
+                                        <img src="IMG/ERP_DEMO_3.png" alt="ERP Demo 3" />
+                                    </div>
+                                    <div class="erp-media-card">
+                                        <img src="IMG/ERP_DEMO_4.png" alt="ERP Demo 4" />
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Botão minimalista (linha - seta - linha) posicionado ABSOLUTO -->
+                            <button class="toggle-erp-btn" id="toggleErpBtn">
+                                <span class="line"></span>
+                                <span class="arrow">&#9660;</span>
+                                <span class="line"></span>
+                            </button>
                         </div>
-                        <div class="solution-content">
-                            <h3 class="solution-title">Sistema ERP Completo</h3>
-                            <p class="solution-description">Sistema integrado completo para pequenas e médias empresas.</p>
-                            <ul class="features-list">
-                                <li>Mercados e Varejos</li>
-                                <li>Lojas de Material de Construção</li>
-                                <li>Distribuidoras</li>
-                                <li>Prestadores de Serviço</li>
-                            </ul>
+
+                        <!-- Funcionalidades (features) -->
+                        <div class="erp-features-grid">
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Sistema PDV para frente de caixa</h4>
+                                <p class="erp-feature-description">
+                                    Sistema PDV eficiente e integrado, que realiza a venda de forma online, incluindo pagamento e emissão de nota fiscal.
+                                </p>
+                            </div>
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Controle de estoque</h4>
+                                <p class="erp-feature-description">
+                                    Evite perder clientes por falta de produtos e materiais. Controle a entrada e saída de estoque de um jeito simples e rápido.
+                                </p>
+                            </div>
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Controle financeiro</h4>
+                                <p class="erp-feature-description">
+                                    Mantenha as finanças da sua empresa sempre em dia. Gerencie contas a pagar e receber sem complicação, direto pelo sistema.
+                                </p>
+                            </div>
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Emissão de notas fiscais</h4>
+                                <p class="erp-feature-description">
+                                    Zero burocracia! Emita notas fiscais de todos os tipos: NF-e, NFS-e, NFC-e, CT-e, MDF-e. Leva no máximo 2 minutinhos.
+                                </p>
+                            </div>
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Relatórios completos</h4>
+                                <p class="erp-feature-description">
+                                    Tome decisões estratégicas com base em dados precisos. Gere relatórios automaticamente e acompanhe resultados em tempo real.
+                                </p>
+                            </div>
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Cadastros</h4>
+                                <p class="erp-feature-description">
+                                    Quanto mais informações, melhor. Cadastre clientes, fornecedores, produtos e funcionários para agilizar a rotina e fidelizar.
+                                </p>
+                            </div>
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Gestão de serviços</h4>
+                                <p class="erp-feature-description">
+                                    Não perca o controle sobre os serviços prestados. Centralize informações importantes e conecte com financeiro e estoque.
+                                </p>
+                            </div>
+                            <div class="erp-feature-item">
+                                <h4 class="erp-feature-title">Controle de vendas</h4>
+                                <p class="erp-feature-description">
+                                    Acompanhe as vendas com praticidade e abandone o caderninho. Gerencie informações de pagamentos, produtos e clientes e mais.
+                                </p>
+                            </div>
                         </div>
                     </div>
+                </section>
 
+                <!-- Outras Soluções Section -->
+                <section class="other-services">
+                    <!-- Card: Apps Personalizados -->
                     <div class="solution-card">
-                        <div class="solution-image">
-                            <div class="carousel">
-                                <img src="IMG/APP-MANUTENCAO.png" alt="Apps Personalizados - Vista 1">
-                                <img src="IMG/APP-TRUQUES.png" alt="Apps Personalizados - Vista 2">
-                                <img src="IMG/APP-JUSCORP.png" alt="Apps Personalizados - Vista 3">
-                                <img src="IMG/APP-COLABORADORES.png" alt="Apps Personalizados - Vista 4">
+                        <div class="solution-header">
+                            <div class="solution-image-marquee">
+                                <div class="solution-image-track">
+                                    <img src="IMG/APP-MANUTENCAO.png" alt="Apps Personalizados - Vista 1" />
+                                    <img src="IMG/APP-TRUQUES.png" alt="Apps Personalizados - Vista 2" />
+                                    <img src="IMG/APP-JUSCORP.png" alt="Apps Personalizados - Vista 3" />
+                                    <img src="IMG/APP-COLABORADORES.png" alt="Apps Personalizados - Vista 4" />
+                                    <!-- Clone para loop -->
+                                    <img src="IMG/APP-MANUTENCAO.png" alt="Apps Personalizados - Vista 1 Clone" />
+                                    <img src="IMG/APP-TRUQUES.png" alt="Apps Personalizados - Vista 2 Clone" />
+                                    <img src="IMG/APP-JUSCORP.png" alt="Apps Personalizados - Vista 3 Clone" />
+                                    <img src="IMG/APP-COLABORADORES.png" alt="Apps Personalizados - Vista 4 Clone" />
+                                </div>
                             </div>
+                            <h3 class="solution-title">Apps Personalizados</h3>
+                            <p class="solution-description">
+                                Desenvolvimento de aplicações específicas na nuvem.
+                            </p>
                         </div>
                         <div class="solution-content">
-                            <h3 class="solution-title">Apps Personalizados</h3>
-                            <p class="solution-description">Desenvolvimento de aplicações específicas na nuvem.</p>
                             <ul class="features-list">
                                 <li>Sistemas de Gestão Customizados</li>
                                 <li>Portais de Cliente</li>
@@ -98,18 +199,26 @@
                         </div>
                     </div>
 
+                    <!-- Card: Apps Escaláveis -->
                     <div class="solution-card">
-                        <div class="solution-image">
-                            <div class="carousel">
-                                <img src="IMG/NR-MASTER_ESCALAVEL_1.png" alt="Apps Escaláveis - Vista 1">
-                                <img src="IMG/NR-MASTER_ESCALAVEL_2.png" alt="Apps Escaláveis - Vista 2">
-                                <img src="IMG/NR-MASTER_ESCALAVEL_3.png" alt="Apps Escaláveis - Vista 3">
-                                <img src="IMG/DATACENTER.webp" alt="Apps Escaláveis - Vista 4">
+                        <div class="solution-header">
+                            <div class="solution-image-marquee">
+                                <div class="solution-image-track">
+                                    <img src="IMG/NR-MASTER_ESCALAVEL_1.png" alt="Apps Escaláveis - Vista 1" />
+                                    <img src="IMG/NR-MASTER_ESCALAVEL_2.png" alt="Apps Escaláveis - Vista 2" />
+                                    <img src="IMG/NR-MASTER_ESCALAVEL_3.png" alt="Apps Escaláveis - Vista 3" />
+                                    <img src="IMG/DATACENTER.webp" alt="Apps Escaláveis - Vista 4" />
+                                    <!-- Clone para loop -->
+                                    <img src="IMG/NR-MASTER_ESCALAVEL_1.png" alt="Apps Escaláveis - Vista 1 Clone" />
+                                    <img src="IMG/NR-MASTER_ESCALAVEL_2.png" alt="Apps Escaláveis - Vista 2 Clone" />
+                                    <img src="IMG/NR-MASTER_ESCALAVEL_3.png" alt="Apps Escaláveis - Vista 3 Clone" />
+                                    <img src="IMG/DATACENTER.webp" alt="Apps Escaláveis - Vista 4 Clone" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="solution-content">
                             <h3 class="solution-title">Apps Escaláveis</h3>
                             <p class="solution-description">Desenvolvimento de aplicações robustas de grande porte.</p>
+                        </div>
+                        <div class="solution-content">
                             <ul class="features-list">
                                 <li>Alta Performance</li>
                                 <li>Soluções Empresariais</li>
@@ -119,18 +228,26 @@
                         </div>
                     </div>
 
+                    <!-- Card: Consultoria em TI -->
                     <div class="solution-card">
-                        <div class="solution-image">
-                            <div class="carousel">
-                                <img src="IMG/CONSULTORIA_1.webp" alt="Consultoria em TI - Vista 1">
-                                <img src="IMG/CONSULTORIA_2.webp" alt="Consultoria em TI - Vista 2">
-                                <img src="IMG/CONSULTORIA_3.webp" alt="Consultoria em TI - Vista 3">
-                                <img src="IMG/CONSULTORIA_4.webp" alt="Consultoria em TI - Vista 4">
+                        <div class="solution-header">
+                            <div class="solution-image-marquee">
+                                <div class="solution-image-track">
+                                    <img src="IMG/CONSULTORIA_1.webp" alt="Consultoria em TI - Vista 1" />
+                                    <img src="IMG/CONSULTORIA_2.webp" alt="Consultoria em TI - Vista 2" />
+                                    <img src="IMG/CONSULTORIA_3.webp" alt="Consultoria em TI - Vista 3" />
+                                    <img src="IMG/CONSULTORIA_4.webp" alt="Consultoria em TI - Vista 4" />
+                                    <!-- Clone para loop -->
+                                    <img src="IMG/CONSULTORIA_1.webp" alt="Consultoria em TI - Vista 1 Clone" />
+                                    <img src="IMG/CONSULTORIA_2.webp" alt="Consultoria em TI - Vista 2 Clone" />
+                                    <img src="IMG/CONSULTORIA_3.webp" alt="Consultoria em TI - Vista 3 Clone" />
+                                    <img src="IMG/CONSULTORIA_4.webp" alt="Consultoria em TI - Vista 4 Clone" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="solution-content">
                             <h3 class="solution-title">Consultoria em TI</h3>
                             <p class="solution-description">Suporte e orientação especializada para sua empresa.</p>
+                        </div>
+                        <div class="solution-content">
                             <ul class="features-list">
                                 <li>Implementação de Sistemas</li>
                                 <li>Treinamento de Equipes</li>
@@ -139,108 +256,127 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-
-                <!-- Nova Seção de Clientes -->
+                </section>
+                <!-- Fim Outras Soluções -->
+                <!-- Seção de Clientes (Marquee) -->
                 <div class="clients-section">
                     <h2 class="section-title">Nossos Clientes</h2>
-
-                    <div class="clients-slider">
+                    <div class="clients-marquee">
                         <div class="clients-track">
-                            <!-- Grupo 1 -->     
+                            <!-- Grupo 1 -->
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/IANCO.png" alt="Logo Cliente 1">
+                                    <img src="IMG/IANCO.png" alt="Logo Cliente 1" />
                                 </div>
                                 <h3 class="client-name">Empresa ABC</h3>
-                                <p class="client-service">Sistema para Controle de Documentos de normas regulamentadoras.</p>
+                                <p class="client-service">
+                                    Sistema para Controle de Documentos de normas regulamentadoras.
+                                </p>
                             </div>
 
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/Logo_Santa_Rosa.jpg" alt="Logo Cliente 2">
+                                    <img src="IMG/Logo_Santa_Rosa.jpg" alt="Logo Cliente 2" />
                                 </div>
                                 <h3 class="client-name">Santa Rosa Manutenção</h3>
-                                <p class="client-service">App para gerenciamento de SM's (Solicitações de Manutenção) internas e externas.</p>
+                                <p class="client-service">
+                                    App para gerenciamento de SM's (Solicitações de Manutenção) internas e externas.
+                                </p>
                             </div>
 
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/Logo-Site-Jardmaq-800x229-1.webp" alt="Logo Cliente 3">
+                                    <img src="IMG/Logo-Site-Jardmaq-800x229-1.webp"
+                                         alt="Logo Cliente 3" />
                                 </div>
                                 <h3 class="client-name">Jardmaq</h3>
-                                <p class="client-service">App para interface com cliente para locações de maquinarios para jardinagem.</p>
+                                <p class="client-service">
+                                    App para interface com cliente para locações de maquinarios para jardinagem.
+                                </p>
                             </div>
 
                             <!-- Grupo 2 -->
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/USIFIX VETOR LOGO.svg" alt="Logo Cliente 4">
+                                    <img src="IMG/USIFIX VETOR LOGO.svg" alt="Logo Cliente 4" />
                                 </div>
                                 <h3 class="client-name">USIFIX</h3>
-                                <p class="client-service">Sistema para gerenciamento de peças seriadas (especificas) para celular e computadores.</p>
+                                <p class="client-service">
+                                    Sistema para gerenciamento de peças seriadas (especificas) para celular e computadores.
+                                </p>
                             </div>
 
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/VITI.webp" alt="Logo Cliente 5">
+                                    <img src="IMG/VITI.webp" alt="Logo Cliente 5" />
                                 </div>
                                 <h3 class="client-name">Viti Parafusos</h3>
-                                <p class="client-service">Consultoria responsavel pelos e-mails, nuvem, sharepoint, office, etc</p>
+                                <p class="client-service">
+                                    Consultoria responsavel pelos e-mails, nuvem, sharepoint, office, etc
+                                </p>
                             </div>
 
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/VETOR_METALPAR.svg" alt="Logo Cliente 6">
+                                    <img src="IMG/VETOR_METALPAR.svg" alt="Logo Cliente 6" />
                                 </div>
                                 <h3 class="client-name">METALPAR</h3>
-                                <p class="client-service">Portal para controle de moldes de fundição e gerenciamento de orçamentos/venda (Mini CRM).</p>
+                                <p class="client-service">
+                                    Portal para controle de moldes de fundição e gerenciamento de orçamentos/venda (Mini CRM).
+                                </p>
                             </div>
 
                             <!-- Clone do Grupo 1 para loop contínuo -->
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/IANCO.png" alt="Logo Cliente 1">
+                                    <img src="IMG/IANCO.png" alt="Logo Cliente 1 Clone" />
                                 </div>
                                 <h3 class="client-name">Empresa ABC</h3>
-                                <p class="client-service">Sistema para Controle de Documentos de normas regulamentadoras.</p>
+                                <p class="client-service">
+                                    Sistema para Controle de Documentos de normas regulamentadoras.
+                                </p>
                             </div>
 
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/Logo_Santa_Rosa.jpg" alt="Logo Cliente 2">
+                                    <img src="IMG/Logo_Santa_Rosa.jpg" alt="Logo Cliente 2 Clone" />
                                 </div>
                                 <h3 class="client-name">Santa Rosa Manutenção</h3>
-                                <p class="client-service">App para gerenciamento de SM's (Solicitações de Manutenção) internas e externas.</p>
+                                <p class="client-service">
+                                    App para gerenciamento de SM's (Solicitações de Manutenção) internas e externas.
+                                </p>
                             </div>
 
                             <div class="client-card">
                                 <div class="client-logo">
-                                    <img src="IMG/Logo-Site-Jardmaq-800x229-1.webp" alt="Logo Cliente 3">
+                                    <img src="IMG/Logo-Site-Jardmaq-800x229-1.webp"
+                                         alt="Logo Cliente 3 Clone" />
                                 </div>
                                 <h3 class="client-name">Jardmaq</h3>
-                                <p class="client-service">App para interface com cliente para locações de maquinarios para jardinagem.</p>
+                                <p class="client-service">
+                                    App para interface com cliente para locações de maquinarios para jardinagem.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- Seção de Contato -->
                 <div class="contact-section">
                     <div class="contact-grid">
                         <div class="contact-item">
                             <span class="contact-icon">📱</span>
-                            <span><strong>WhatsApp:</strong> (41) 99623-0399</span>
+                            <span class="contact-text"><strong>WhatsApp:</strong> (41) 99623-0399</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">✉️</span>
-                            <span>comercial@synnova.com.br</span>
+                            <span class="contact-text">comercial@synnova.com.br</span>
                         </div>
                         <div class="contact-item">
                             <span class="contact-icon">📍</span>
-                            <span>Curitiba - PR</span>
+                            <span class="contact-text">Curitiba - PR</span>
                         </div>
                     </div>
-
                     <div class="social-links">
                         <a href="#" class="social-link">in</a>
                         <a href="#" class="social-link">fb</a>
@@ -248,6 +384,7 @@
                     </div>
                 </div>
 
+                <!-- CTA Final -->
                 <div class="cta-section">
                     <h2 class="cta-title">Transforme Seu Negócio</h2>
                     <p class="cta-text">
@@ -258,5 +395,26 @@
             </main>
         </div>
     </div>
+
+    </main>
+    </div>
+    </div>
+
+    <!-- Script para Expandir/Recolher com overflow -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleBtn = document.getElementById("toggleErpBtn");
+            const erpTopWrap = document.getElementById("erpTopWrap");
+
+            toggleBtn.addEventListener("click", () => {
+                // Alterna entre 'collapsed' e 'expanded' no contêiner
+                erpTopWrap.classList.toggle("collapsed");
+                erpTopWrap.classList.toggle("expanded");
+
+                // Gira a seta
+                toggleBtn.classList.toggle("expanded");
+            });
+        });
+    </script>
 </body>
 </html>
